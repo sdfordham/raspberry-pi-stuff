@@ -11,7 +11,7 @@ install:
 	apt-get install transmission-daemon
 
 permissions:
-	adduser "debian-transmission" plexmediaserver
+	adduser "debian-transmission" plex
 
 start:
 	systemctl start transmission-daemon
