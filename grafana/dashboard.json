@@ -274,7 +274,7 @@
             "uid": "62MrxogRz"
           },
           "editorMode": "code",
-          "expr": "avg_over_time(node_thermal_zone_temp[15m])",
+          "expr": "node_thermal_zone_temp",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -392,7 +392,7 @@
       },
       "id": 14,
       "panels": [],
-      "title": "Wlan rate",
+      "title": "Network Activity",
       "type": "row"
     },
     {
@@ -451,7 +451,7 @@
             "uid": "62MrxogRz"
           },
           "editorMode": "code",
-          "expr": "rate(node_network_receive_bytes_total{device=\"wlan0\"}[15m])",
+          "expr": "rate(node_network_receive_bytes_total{device=\"wlan0\"}[1m])",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -551,7 +551,170 @@
           "refId": "A"
         }
       ],
+      "title": "Network Activity (receive on wlan0)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "62MrxogRz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-BlYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 85
+              }
+            ]
+          },
+          "unit": "binBps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 0,
+        "y": 21
+      },
+      "id": 20,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": false
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "62MrxogRz"
+          },
+          "editorMode": "code",
+          "expr": "rate(node_network_transmit_bytes_total{device=\"wlan0\"}[1m])",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
       "title": "Network Activity",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "62MrxogRz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-blue",
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "log": 2,
+              "type": "log"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binBps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 19,
+        "x": 5,
+        "y": 21
+      },
+      "id": 19,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "62MrxogRz"
+          },
+          "editorMode": "code",
+          "expr": "rate(node_network_transmit_bytes_total{device=\"wlan0\"}[1m])",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Network Activity (transmit on wlan0)",
       "type": "timeseries"
     }
   ],
@@ -564,13 +727,13 @@
     "list": []
   },
   "time": {
-    "from": "now-12h",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "Europe/Dublin",
   "title": "Raspberry Pi Monitor",
   "uid": "b7xGBTRRk",
-  "version": 12,
+  "version": 18,
   "weekStart": ""
 }
