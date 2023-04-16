@@ -1,4 +1,4 @@
-all: install permissions start
+all: install permissions enable start
 
 install:
 	apt-get update
@@ -16,6 +16,9 @@ permissions:
 	chmod g+rwx "/media/pi/"
 	chgrp plex "/media/pi/Seagate Backup Plus Drive/"
 	chmod g+rwx "/media/pi/Seagate Backup Plus Drive/"
+
+enable:
+	systemctl enable plexmediaserver
 
 start:
 	systemctl start plexmediaserver

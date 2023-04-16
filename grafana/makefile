@@ -1,4 +1,4 @@
-all: install start
+all: install enable start
 
 install:
 	mkdir -p /etc/apt/keyrings/
@@ -7,5 +7,7 @@ install:
 	apt-get update
 	apt-get install grafana
 
+enable:
+	systemctl enable grafana
 start:
 	systemctl start grafana

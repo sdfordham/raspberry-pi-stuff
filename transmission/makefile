@@ -3,7 +3,7 @@ TORRENT_FILE_PATH = /media/pi/Seagate\ Backup\ Plus\ Drive/
 EXCLUDE_TRACKER = tracker.baconbits.org
 USERNAME = stiofainf
 
-all: install permissions start load
+all: install permissions enable start load
 
 install:
 	apt-get update
@@ -12,6 +12,9 @@ install:
 
 permissions:
 	adduser "debian-transmission" plex
+
+enable:
+	systemctl enable transmission-daemon
 
 start:
 	systemctl start transmission-daemon
