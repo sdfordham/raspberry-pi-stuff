@@ -3,7 +3,7 @@ all: install enable start
 install:
 	apt-get install prometheus
 
-start:
+enable:
 	systemctl enable prometheus.service
 
 start:
