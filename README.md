@@ -1,2 +1,2 @@
-# raspberry-pi-stuff
-raspberry-pi-stuff
+# raspberry pi materials
+Scripts and makefiles
