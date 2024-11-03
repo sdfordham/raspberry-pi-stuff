@@ -1,1 +1,1 @@
-webfsd -f home-page.html -p 80
+webfsd -f home.html -p 80
