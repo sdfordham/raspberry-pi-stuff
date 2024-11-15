@@ -22,3 +22,7 @@ start:
 load:
 	python -m pip install tautoloader
 	python -m tautoloader.cli -t ${TORRENT_DATA_PATH} -d ${TORRENT_FILE_PATH} -e ${EXCLUDE_TRACKER} -u ${USERNAME} -s 5 -c 0.7
+
+backup:
+	cp -rL /var/lib/transmission-daemon/info /home/pi/
+	chown pi /home/pi/info
