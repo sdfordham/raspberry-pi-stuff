@@ -11,7 +11,8 @@ install:
 	apt-get install transmission-daemon
 
 permissions:
-	adduser "debian-transmission" plex
+	adduser "debian-transmission" media
+	chgrp media /media/
 
 enable:
 	systemctl enable transmission-daemon
@@ -26,3 +27,8 @@ load:
 backup:
 	cp -rL /var/lib/transmission-daemon/info /home/pi/
 	chown pi /home/pi/info
+
+restore:
+	rm -r /var/lib/transmission-daemon/.config/transmission-daemon/*
+	cp -r /home/pi/info/* /var/lib/transmission-daemon/.config/transmission-daemon/
+	chown debian-transmission /var/lib/transmission-daemon/.config/transmission-daemon/
