@@ -12,8 +12,7 @@ install:
 
 permissions:
 	adduser "debian-transmission" media
-	chgrp media /media/
-
+	
 enable:
 	systemctl enable transmission-daemon
 	sed -i "s/^ExecStart=.*$/ExecStart=\/usr\/bin\/transmission-daemon -f --log-debug --logfile \/etc\/transmission-daemon\/logs\/log.log/" /usr/lib/systemd/system/transmission-daemon.service

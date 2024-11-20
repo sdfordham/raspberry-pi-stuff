@@ -10,12 +10,7 @@ install:
 	apt install plexmediaserver
 
 permissions:
-	adduser "pi" plex
-	setfacl -m g:plex:rx /media/pi
-	chgrp plex "/media/pi/"
-	chmod g+rwx "/media/pi/"
-	chgrp plex "/media/pi/Seagate Backup Plus Drive/"
-	chmod g+rwx "/media/pi/Seagate Backup Plus Drive/"
+	adduser plex media
 
 enable:
 	systemctl enable plexmediaserver
