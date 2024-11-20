@@ -7,12 +7,12 @@ all: install permissions enable start load
 
 install:
 	apt-get update
-	apt-get upgrade
+	apt-get -y upgrade
 	apt-get install transmission-daemon
 
 permissions:
 	adduser "debian-transmission" media
-	
+
 enable:
 	systemctl enable transmission-daemon
 	sed -i "s/^ExecStart=.*$/ExecStart=\/usr\/bin\/transmission-daemon -f --log-debug --logfile \/etc\/transmission-daemon\/logs\/log.log/" /usr/lib/systemd/system/transmission-daemon.service
