@@ -8,6 +8,6 @@ install:
 	apt-get install grafana
 
 enable:
-	systemctl enable grafana
+	systemctl enable grafana-server
 start:
-	systemctl start grafana
+	systemctl start grafana-server
