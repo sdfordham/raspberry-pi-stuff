@@ -1,0 +1,7 @@
+proc            /proc           proc    defaults          0       0
+PARTUUID=94125d21-01  /boot           vfat    defaults          0       2
+PARTUUID=94125d21-02  /               ext4    defaults,noatime  0       1
+PARTUUID=d052708e-640e-476d-b6a4-d8bfcc631e80 /media/pi/Seagate\040Portable\040Drive ntfs defaults,uid=pi,gid=media,umask=002 0 0
+UUID=95f48bed-ed11-492b-b780-95cf370e79a5 /media/pi/Seagate\040Backup\040Plus\040Drive ext4 defaults 0 2
+# a swapfile is not a swap partition, no line here
+#   use  dphys-swapfile swap[on|off]  for that
