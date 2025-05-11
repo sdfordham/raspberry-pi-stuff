@@ -7,12 +7,11 @@ all: install permissions enable start load
 
 install:
 	apt-get update
-	apt-get upgrade
+	apt-get -y upgrade
 	apt-get install transmission-daemon
 
 permissions:
 	adduser "debian-transmission" media
-	chgrp media /media/
 
 enable:
 	systemctl enable transmission-daemon
